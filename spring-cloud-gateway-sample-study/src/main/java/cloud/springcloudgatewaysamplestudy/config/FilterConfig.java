@@ -1,4 +1,4 @@
-package cloud.springcloudgatewayservice.config;
+package cloud.springcloudgatewaysamplestudy.config;
 
 
 
