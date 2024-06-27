@@ -10,7 +10,7 @@ eureka:
 
 spring:
   application:
-    name: apigateway-service
+    name: spring-cloud-gateway-service
   cloud:
     gateway:
       routes:
@@ -19,14 +19,12 @@ spring:
           predicates:
             - Path=/first-service/**
           filters:
-#            - AddRequestHeader=first-request, first-requests-header2
-#            - AddResponseHeader=first-response, first-response-header2
-            - CustomFilter
+ #            - CustomFilter
+            - Parameter
         - id: second-service
           uri: http://localhost:8082/
           predicates:
             - Path=/second-service/**
           filters:
-#            - AddRequestHeader=first-request, second-requests-header2
-#            - AddResponseHeader=first-response, second-response-header2
-            - CustomFilter
+#            - CustomFilter
+            - Parameter

@@ -1,0 +1,44 @@
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 120512zxc@
+      MYSQL_DATABASE: employees
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+
+  user-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring-cloud-study-user-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/employees
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 120512zxc@
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  eureka-server:
+    build:  # build 지시어 사용으로 이미지 직접 빌드
+      context: ./eureka-server  # Eureka 서버 Dockerfile 위치
+      dockerfile: Dockerfile
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
