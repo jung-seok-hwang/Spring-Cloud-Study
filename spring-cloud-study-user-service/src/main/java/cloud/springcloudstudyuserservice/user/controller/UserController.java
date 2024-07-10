@@ -58,7 +58,6 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<UserResponse> create(@RequestBody UserRequest users) {
 
-        
         log.info("Model Mapper User Information = {}" , users.toString());
         ModelMapper mapper = new ModelMapper();
 

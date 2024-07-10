@@ -6,7 +6,6 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Table(name = "user")
@@ -29,8 +28,4 @@ public class User {
 
     private String encryptedPassword;
 
-    public void updatePassword(String password,  String userId) {
-        this.encryptedPassword = userId;
-        this.userId = userId;
-    }
 }
