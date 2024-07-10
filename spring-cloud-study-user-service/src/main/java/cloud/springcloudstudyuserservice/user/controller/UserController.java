@@ -1,9 +1,9 @@
 package cloud.springcloudstudyuserservice.user.controller;
 
 
-import cloud.springcloudstudyuserservice.user.controller.request.UserDto;
-import cloud.springcloudstudyuserservice.user.controller.request.UserRequest;
-import cloud.springcloudstudyuserservice.user.controller.response.UserResponse;
+import cloud.springcloudstudyuserservice.user.dto.UserDto;
+import cloud.springcloudstudyuserservice.user.vo.request.UserRequest;
+import cloud.springcloudstudyuserservice.user.vo.response.UserResponse;
 import cloud.springcloudstudyuserservice.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -58,6 +58,7 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<UserResponse> create(@RequestBody UserRequest users) {
 
+        
         log.info("Model Mapper User Information = {}" , users.toString());
         ModelMapper mapper = new ModelMapper();
 

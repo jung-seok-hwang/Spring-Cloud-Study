@@ -1,8 +1,7 @@
 package cloud.springcloudstudyuserservice.user.service;
 
-import cloud.springcloudstudyuserservice.user.controller.request.UserDto;
-import cloud.springcloudstudyuserservice.user.controller.request.UserRequest;
-import cloud.springcloudstudyuserservice.user.controller.response.UserResponse;
+import cloud.springcloudstudyuserservice.user.dto.UserDto;
+import cloud.springcloudstudyuserservice.user.vo.response.UserResponse;
 
 public interface UserService {
 
