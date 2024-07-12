@@ -46,13 +46,12 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping("/check")
-    public String status() {
+    @GetMapping("/doSecondService")
+    public  ResponseEntity<String> status() {
 
-        return String.format(
-                "port(local.sever.port) = ", env.getProperty("local.server.port")
-        );
+        String message = userService.doSpringCloudUserService();
 
+        return ResponseEntity.ok().body(message);
     }
 
     @PostMapping("/create")

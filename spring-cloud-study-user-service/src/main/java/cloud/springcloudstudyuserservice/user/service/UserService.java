@@ -6,4 +6,6 @@ import cloud.springcloudstudyuserservice.user.vo.response.UserResponse;
 public interface UserService {
 
     UserResponse createUser(UserDto userDto);
+
+    String doSpringCloudUserService();
 }
